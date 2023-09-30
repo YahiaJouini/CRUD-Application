@@ -10,3 +10,4 @@ A CRUD application that allows users to perform operations of data management:<b
 </ul>
 
 <h2>*similar concept as a notes app</h2>
+design and idea inspired by this video https://www.youtube.com/watch?v=AX9k9bjCBD0
