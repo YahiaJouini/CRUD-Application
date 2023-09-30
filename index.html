@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CRUD Application With Local Storage</h1>
+        <div class="inputs">
+            <div class="input-zone">
+                <label>Name</label><input type="text" placeholder="Enter Name" id="name">
+            </div>
+            <div class="input-zone">
+                <label>Age</label><input type="number" placeholder="Enter age" id="age">
+            </div>
+            <div class="input-zone">
+                <label>Adress</label><input type="text" placeholder="Enter Adress" id="adress">
+            </div>
+            <div class="input-zone">
+                <label>Email</label><input type="email" placeholder="Enter Email" id="email">
+            </div>
+        </div>
+        <div class="btn">
+            <button class="add">Add Data</button>
+        </div>
+        <div class="tbl">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Adress</th>
+                        <th>Email</th>
+                        <th style="width: 300px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
