@@ -6,19 +6,21 @@ const Alldata=[username,age,adress,email];
 const tbody=document.querySelector('tbody');
 const addBtn=document.querySelector('.add');
 
+window.onload=showCrud();/* to show already saved data */
 
-addBtn.addEventListener('click',addData)
+addBtn.addEventListener('click',addData);/* to add new data */
+
+tbody.addEventListener('click',actions);/* to edit or delete already saved data */
 
 
 function addData(){
     if(verifierInputs()){
-    let tr=document.createElement('tr');
-    for(i=0;i<4;i++){
-        let td=document.createElement("td");
-        td.appendChild(document.createTextNode(Alldata[i].value));
-        tr.appendChild(td);
-    }
-
+        let tr=document.createElement('tr');
+        for(i=0;i<4;i++){
+            let td=document.createElement("td");
+            td.appendChild(document.createTextNode(Alldata[i].value));
+            tr.appendChild(td);
+        };
     let deleteBtn=document.createElement('button')
     deleteBtn.appendChild(document.createTextNode('Delete'));
     deleteBtn.classList.add('action','delete');
@@ -34,16 +36,17 @@ function addData(){
     td.appendChild(editBtn);
 
     tr.appendChild(td);
-    tbody.appendChild(tr)
-    clearInputs()    
-    tr.addEventListener('click',actions)}
-    else {
+    tbody.appendChild(tr);
+    clearInputs();
+    saveData();
+    }else {
         alert('Please fill out all required fields.')
     }
 }
 
 
 function actions(e){
+
     let clk=e.target;
     const btnZone=document.querySelector('.btn');
 
@@ -54,6 +57,7 @@ function actions(e){
             clearInputs()
             btnZone.children[0].remove();
             btnZone.appendChild(addBtn);
+            saveData();
         }
     }else if(clk.classList.contains('edit')){
         let tr=Array.from(clk.parentElement.parentElement.children);
@@ -72,9 +76,10 @@ function actions(e){
             for(i=0;i<tr.length-1;i++){
                 tr[i].innerText=Alldata[i].value;
             };
-            clearInputs()
+            clearInputs();
             btnZone.children[0].remove();
             btnZone.appendChild(addBtn);
+            saveData();
         });
     }
 }
@@ -100,3 +105,15 @@ function fillInputs(tr){
 function verifierInputs(){
     return (username.value!="" && age.value!="" && adress.value!="" && email.value!="")
 }
+
+
+/* to save the inserted data and show them once the page is loaded */
+
+function saveData(){
+    localStorage.setItem('data',tbody.innerHTML);
+}
+function showCrud(){
+    if(localStorage.getItem('data')){
+        tbody.innerHTML=localStorage.getItem('data');
+    };
+};
