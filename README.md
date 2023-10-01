@@ -8,6 +8,6 @@ A CRUD application that allows users to perform operations of data management:<b
 <li>Update: Modify existing data records.</li>
 <li>Delete: Remove existing data records.</li>
 </ul>
-
+<a href="https://crud-application-with-localstorage.netlify.app/">Preview</a>
 <h2>*similar concept as a notes app</h2>
 design and idea inspired by this video https://www.youtube.com/watch?v=AX9k9bjCBD0
