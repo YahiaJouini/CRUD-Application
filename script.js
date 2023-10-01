@@ -52,7 +52,10 @@ function actions(e){
 
 
     if(clk.classList.contains('delete')){
-        clk.parentElement.parentElement.remove()
+        
+        clk.parentElement.parentElement.remove();
+        saveData();
+
         if(btnZone.children[0].classList.contains('update')){
             clearInputs()
             btnZone.children[0].remove();
@@ -110,6 +113,7 @@ function verifierInputs(){
 /* to save the inserted data and show them once the page is loaded */
 
 function saveData(){
+    console.log(tbody.innerHTML)
     localStorage.setItem('data',tbody.innerHTML);
 }
 function showCrud(){
